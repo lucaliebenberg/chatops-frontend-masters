@@ -118,6 +118,10 @@ export const handler: Handler = async (event) => {
   }
 
   // TODO: handle interactivity (e.g - context commands, modals)
+  if (body.payload) {
+    const payload = JSON.parse(body.payload);
+    return handleInteractivity(payload);
+  }
 
   return {
     statusCode: 200,
